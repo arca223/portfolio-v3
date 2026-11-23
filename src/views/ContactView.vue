@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import ContactCard from '@/components/contact/ContactCard.vue'
-import CopyEmailButton from '@/components/contact/CopyEmailButton.vue'
+import EmailReveal from '@/components/contact/EmailReveal.vue'
 import BaseSection from '@/components/ui/BaseSection.vue'
-import LinkButton from '@/components/ui/LinkButton.vue'
 import PageHeader from '@/components/ui/PageHeader.vue'
-import { CONTACT_EMAIL, contactIntro, mailtoHref, socialLinks } from '@/data/contact'
+import { contactIntro, socialLinks } from '@/data/contact'
 </script>
 
 <template>
@@ -14,26 +13,7 @@ import { CONTACT_EMAIL, contactIntro, mailtoHref, socialLinks } from '@/data/con
       :title="contactIntro.title"
       :description="contactIntro.description"
     >
-      <div class="mt-8 flex flex-wrap items-start gap-3">
-        <LinkButton :href="mailtoHref" size="lg">
-          <svg
-            class="size-5"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.75"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-            focusable="false"
-          >
-            <rect x="3" y="5" width="18" height="14" rx="2" />
-            <path d="m3 7 9 6 9-6" />
-          </svg>
-          Email me
-        </LinkButton>
-        <CopyEmailButton :email="CONTACT_EMAIL" />
-      </div>
+      <EmailReveal class="mt-8" />
       <p class="mt-6 flex items-center gap-2 text-sm text-fg-muted">
         <svg
           class="size-4 shrink-0 text-accent"
@@ -54,7 +34,7 @@ import { CONTACT_EMAIL, contactIntro, mailtoHref, socialLinks } from '@/data/con
     </PageHeader>
 
     <BaseSection id="contact-channels" title="Find me online">
-      <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <li v-for="(link, i) in socialLinks" :key="link.platform" v-reveal="i * 80">
           <ContactCard :link="link" />
         </li>

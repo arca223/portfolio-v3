@@ -101,3 +101,16 @@ Each entry gives the context, the choice, why it was made, and the alternatives 
 ## D17 — Spoken languages use their own scale
 - Language categories have `scale: 'language'`. They show their CEFR-style note ("Native", "C1") instead of a 1–5 skill meter, and the level filter ignores them.
 - v1's Semantic UI and Font Awesome skills are dropped on purpose: they no longer apply to a Tailwind stack.
+
+## D18 — Contact email kept out of the repo and out of the built site
+- **Context:** Maxime doesn't want his email address in the public GitHub repo, or easy for spam bots to harvest from the live site.
+- **Choice:**
+  - **Not in the repo:** the address lives in the non-`VITE_` variable `CONTACT_EMAIL`. Locally it goes in the git-ignored `.env.local`; on GitHub it is the Actions secret `CONTACT_EMAIL`. `.env.example` documents the variable name only.
+  - **Not in plain text in the build:** `vite.config.ts` reverses and base64-encodes the address at build time and exposes only `__CONTACT_EMAIL_ENC__` through `define`. Building with a dummy address and searching `dist/` for it finds nothing.
+  - **Revealed on click:** the Contact page shows a "Show email address" button. Clicking it decodes the address in the browser, then shows it with "Email me" (a mailto with a prefilled subject) and "Copy email". The footer's email icon links to `/contact`.
+  - **Missing secret:** if `CONTACT_EMAIL` is unset, the build prints a warning. In production nothing is shown for email; in development a "not configured" hint appears.
+- **Why:** This is the strongest protection a static site allows. Any address a browser can open is ultimately readable by a determined person, but this stops bulk scrapers and keeps the address out of git history.
+- **Rejected:**
+  - A `VITE_` variable, which Vite inlines as plain text.
+  - Real encryption, which is pointless because the key would ship with the site.
+  - A form service, which the user turned down in D6.

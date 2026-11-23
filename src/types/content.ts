@@ -79,7 +79,7 @@ export type SocialPlatform = 'email' | 'github' | 'linkedin'
 export interface SocialLink {
   platform: SocialPlatform
   label: string
-  /** Display text, e.g. "arca223" or the email address. */
+  /** Display text, e.g. "arca223". */
   handle: string
   url: string
   external: boolean

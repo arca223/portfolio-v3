@@ -77,16 +77,16 @@ Status values: `planned` → `in progress` → `in review` → `done`.
 
 ## F8 — Contact (`/contact`)
 - **What:**
-  - **Email:** an "Email me" mailto CTA with a prefilled subject, and a "Copy email" button (Clipboard API with a fallback, announced in a live region).
-  - **Cards:** one each for Email, GitHub (`arca223`) and LinkedIn. Each card is a single link.
+  - **Email:** a "Show email address" button that decodes the build-time-encoded address (D18), then shows it with an "Email me" mailto (prefilled subject) and "Copy email" (Clipboard API with a fallback, announced in a live region).
+  - **Cards:** one each for GitHub (`arca223`) and LinkedIn. Each card is a single link.
   - **Location:** a location line.
   - **No form** (D6).
-- **Files:** `src/views/ContactView.vue`, `src/components/contact/{ContactCard,CopyEmailButton}.vue`, `src/data/contact.ts`.
+- **Files:** `src/views/ContactView.vue`, `src/components/contact/{ContactCard,CopyEmailButton,EmailReveal}.vue`, `src/data/contact.ts`.
 
 ---
 
 ## Open items for Maxime
-1. **Email:** `CONTACT_EMAIL` in `src/data/contact.ts` is a placeholder (`your.email@example.com`).
+1. **Email** (D18): put `CONTACT_EMAIL=you@…` in `.env.local` (git-ignored) and restart `npm run dev`. On GitHub, add the repo secret `CONTACT_EMAIL`.
 2. **Skill levels:** levels marked `// estimated` in `src/data/skills.ts` need confirming.
 3. **About copy:** proofread `src/data/about.ts`.
 4. **Education** (`TODO(Maxime)` in `about.ts`):
@@ -98,4 +98,4 @@ Status values: `planned` → `in progress` → `in review` → `done`.
    - the stack of MAX's Bedrock mission (empty: no source)
    - the Bedrock freelance entry's summary (sparse: LinkedIn has no description)
 6. **Years of experience:** currently computed without the 2013–2016 apprenticeship (D14). Decide whether to include it.
-7. **Deploying:** history-mode routing needs an SPA fallback on the host, so every path serves `index.html` (e.g. Netlify `_redirects`: `/* /index.html 200`; Vercel rewrites; nginx `try_files $uri /index.html`).
+7. **Deploying:** `.github/workflows/deploy.yml` deploys to GitHub Pages on every push to `main`. Set **Settings → Pages → Source → GitHub Actions**, the secret `CONTACT_EMAIL`, and the repo variable `PAGES_BASE` (`/` for an `arca223.github.io` repo, `/portfolio-v3/` for a project repo). The workflow copies `index.html` to `404.html`, so links straight to a page like `/about` still work. On other hosts, set up an SPA fallback.

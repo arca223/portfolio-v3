@@ -49,6 +49,10 @@ src/
 docs/                      # this documentation
 ```
 
+## Configuration & deployment
+- `.env.local` (git-ignored) / Actions secret `CONTACT_EMAIL`: the contact email. `vite.config.ts` encodes it into `__CONTACT_EMAIL_ENC__` at build time (D18); see `.env.example`.
+- `.github/workflows/deploy.yml`: builds with `--base=${PAGES_BASE}`, copies `index.html` to `404.html` as the SPA fallback, and deploys to GitHub Pages. Vite prefixes the base onto the assets, favicon and font paths, and the router uses `import.meta.env.BASE_URL`.
+
 ## Data flow
 1. **Content.** `src/data/*.ts` exports constants typed with interfaces from `src/types/content.ts`, so a missing or wrong field is a compile error. Images are imported in data files, so Vite fingerprints them and the data carries resolved URLs.
 2. **Views.** Each view imports only the data it needs and passes it down as typed props to its page components (`components/<page>/`), which build on the `ui/` primitives. Data is static, so there are no stores or fetches for content. Derived values (durations, years of experience) are `computed` or pure functions.

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { profile } from '@/data/profile'
-import { socialLinks } from '@/data/contact'
+import { emailChannel, socialLinks } from '@/data/contact'
 import SocialIcon from '@/components/ui/SocialIcon.vue'
 
 const year = new Date().getFullYear()
@@ -17,6 +17,16 @@ const year = new Date().getFullYear()
       </div>
 
       <ul class="flex items-center gap-1" aria-label="Social links">
+        <li>
+          <!-- No address here: the email is only revealed on the Contact page. -->
+          <RouterLink
+            to="/contact"
+            class="inline-flex size-10 items-center justify-center rounded-lg transition-colors hover:bg-subtle hover:text-accent"
+          >
+            <SocialIcon :platform="emailChannel.platform" />
+            <span class="sr-only">Contact</span>
+          </RouterLink>
+        </li>
         <li v-for="link in socialLinks" :key="link.platform">
           <a
             :href="link.url"
