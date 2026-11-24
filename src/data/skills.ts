@@ -17,8 +17,20 @@ export const skillCategories: SkillCategory[] = [
       { name: 'REST APIs', level: 5 }, // estimated
       { name: 'Domain-Driven Design', level: 3 }, // estimated
       { name: 'Node.js', level: 2 },
-      { name: 'Go', level: 2 }, // estimated
+      { name: 'Go', level: 4 }, // updated: PHP→Go migration in production
       { name: 'Python', level: 2, note: 'Learning' }, // estimated
+    ],
+  },
+  {
+    id: 'ai-engineering',
+    title: 'AI-driven engineering',
+    description: 'Shipping production code with AI agents, backed by oracles and golden tests.',
+    skills: [
+      { name: 'Claude Code', level: 4 }, // estimated
+      { name: 'Codex', level: 4 }, // estimated
+      { name: 'Agentic workflows (GitHub PRs & issues)', level: 4 }, // estimated
+      { name: 'Test oracles & golden testing', level: 4 }, // estimated
+      { name: 'Legacy migration', level: 4 }, // estimated
     ],
   },
   {

@@ -117,3 +117,16 @@ export interface ContactIntro {
   description: string
   location: string
 }
+
+/** Home "Featured project" case study (plain text, never v-html). */
+export interface FeaturedProject {
+  /** Rendered as the section h2. */
+  sectionTitle: string
+  /** Small label above the project title. */
+  eyebrow: string
+  title: string
+  problem: string
+  approach: string[]
+  result: string
+  stack: string[]
+}

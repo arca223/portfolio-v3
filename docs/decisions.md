@@ -41,7 +41,7 @@ Each entry gives the context, the choice, why it was made, and the alternatives 
 - **Rule (from the brief):** `linked.txt` wins for experiences and dates. v1 wins for descriptions and skill details.
 - **Applied:**
   - Mister Auto, SmartTraffiK, Xotelia and LDLC take their dates from linked.txt and their bullet points from v1's descriptions.
-  - The Bedrock (freelance) and MAX Digital Services entries overlap in time. They are kept exactly as on LinkedIn (Maxime's choice).
+  - The Bedrock (freelance) and MAX Digital Services entries overlap in time. They are kept exactly as on LinkedIn (Maxime's choice). *Superseded by D19.*
   - The month ranges of the abbeal 2019–2021 missions have no years. Years are inferred from the reverse-chronological order inside the Feb 2019 – Jun 2021 entry.
   - The CCSD/CNRS apprenticeship (2013–2016) is missing from linked.txt. It is shown under **Education** on About, using v1's description.
 - **Data shape:** Content lives in typed data files (`src/data/*.ts`, types in `src/types/content.ts`), never in templates.
@@ -114,3 +114,16 @@ Each entry gives the context, the choice, why it was made, and the alternatives 
   - A `VITE_` variable, which Vite inlines as plain text.
   - Real encryption, which is pointless because the key would ship with the site.
   - A form service, which the user turned down in D6.
+
+## D19 — AI-driven positioning and experience cleanup (validated by Maxime, 2026-11-24)
+- **Context:** Maxime's current Bedrock mission moved a 280k-line PHP codebase to Go with AI. The Go code runs in production, and the project has since moved to fully agentic development: Claude Code, Codex and Fable develop, Astra reviews, and GitHub PRs and issues are the discussion channel. He also contributed to a 100% AI-built service that consolidates layout data outside the request runtime.
+- **Choices:**
+  - **Headline:** "PHP · Go · AI-driven engineering" (Vue.js removed from the headline).
+  - **Wording:** the AI work is described as "actively contributing to and pushing" the projects, never "leading" them (Maxime's wording).
+  - **Skills:** Go goes from 2 to 4, and a new "AI-driven engineering" category is added.
+  - **Home:** the current-role card shows the migration, and a new Featured project section presents it as a short case study.
+  - **Bedrock/MAX overlap resolved** (this replaces the earlier "mirror LinkedIn" choice in D7):
+    - MAX runs Jan 2024 – Apr 2025 and ends by joining Bedrock's BFF team (Sep 2024). That mission is no longer listed separately.
+    - The freelance Bedrock role starts in May 2025.
+  - **Older entries tightened:** Yook, Entoria, HomeServe ("call centre", since PureCloud is Genesys' contact-centre platform), Alptis, HeyTeam, Mister Auto and Xotelia now describe what he did, with the strongest point first.
+- **Why:** The site now presents his most distinctive, current work, and the timeline no longer double-counts a mission.

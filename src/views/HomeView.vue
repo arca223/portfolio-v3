@@ -4,6 +4,7 @@ import HomeHero from '@/components/home/HomeHero.vue'
 import HomeIntro from '@/components/home/HomeIntro.vue'
 import HomeStats from '@/components/home/HomeStats.vue'
 import CurrentRoleCard from '@/components/home/CurrentRoleCard.vue'
+import FeaturedProject from '@/components/home/FeaturedProject.vue'
 import { experiences } from '@/data/experiences'
 
 /** One shared reference date so every number on the page agrees. */
@@ -19,6 +20,7 @@ const currentExperience = experiences.find(
   <div>
     <HomeHero :current-experience="currentExperience" />
     <HomeIntro />
+    <FeaturedProject />
     <BaseSection id="at-a-glance" title="At a glance">
       <div class="space-y-4">
         <HomeStats :experiences="experiences" :now="now" />
