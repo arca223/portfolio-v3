@@ -38,8 +38,8 @@ export const aboutSections: AboutSection[] = [
     id: 'today',
     title: 'Today',
     paragraphs: [
-      'From late 2022 to the end of 2023, I took a sabbatical: I travelled and spent time learning new technologies on my own, and built a portfolio along the way. I then joined MAX Digital Services, working on Symfony migrations and API integrations before landing on a streaming platform project.',
-      "Today I'm freelancing as a software engineer at Bedrock Streaming, and I'm learning Python and AI on the side.",
+      "From late 2022 to the end of 2023, I took a sabbatical: I travelled and spent time learning new technologies on my own, and built a portfolio along the way. I then joined MAX Digital Services, working on Symfony migrations and API integrations, before joining Bedrock Streaming's BFF (Backend-for-Frontend) team as a consultant.",
+      "Today I'm freelancing at Bedrock Streaming, where I actively contribute to AI-driven engineering projects: AI agents write and review the code, with GitHub pull requests and issues as the discussion channel between agents and engineers. One of them, a 280,000-line PHP-to-Go migration, now runs in production.",
       'I have always enjoyed challenges. Being bored at work is my worst nightmare: if there is nothing to do, I will learn something on my own anyway. This is probably why I love startup-like environments.',
     ],
   },

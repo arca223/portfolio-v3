@@ -52,8 +52,10 @@ Status values: `planned` → `in progress` → `in review` → `done`.
 ## F4 — Home (`/`)
 - **What:**
   - **Hero:** the page's `<h1>` with the name, title and headline; a "Currently {title} at {company}" pill derived from the ongoing experience; the portrait; CTAs to Experiences and Contact.
-  - **Below the hero:** the intro, key-skill chips, an "At a glance" block (years of experience, companies and client missions, all computed from the data), and a card for the current role.
-- **Files:** `src/views/HomeView.vue`, `src/components/home/{HomeHero,HomeIntro,HomeStats,CurrentRoleCard}.vue`.
+  - **Below the hero:** the intro and key-skill chips.
+  - **Featured project:** a short case study of the AI-driven PHP-to-Go migration at Bedrock (challenge, approach, result, stack), from `src/data/featured.ts` (D19).
+  - **At a glance:** years of experience, companies and client missions (all computed from the data), and a card for the current role.
+- **Files:** `src/views/HomeView.vue`, `src/components/home/{HomeHero,HomeIntro,FeaturedProject,HomeStats,CurrentRoleCard}.vue`, `src/data/featured.ts`.
 
 ## F5 — About (`/about`)
 - **What:** Four first-person story sections. On large screens a sticky side column holds the portrait and a table of contents, with deep links like `/about#today`. Below them, an Education list (degree, school, employer for the apprenticeship, period, details).
@@ -93,9 +95,6 @@ Status values: `planned` → `in progress` → `in review` → `done`.
    - the engineering school's name
    - "IUT 2, Grenoble"
    - the DUT dates (2011–2013 are inferred)
-5. **Experiences:**
-   - the HomeServe wording ("phone district")
-   - the stack of MAX's Bedrock mission (empty: no source)
-   - the Bedrock freelance entry's summary (sparse: LinkedIn has no description)
+5. **Experiences:** the content was validated by Maxime on 2026-11-24 (D19). The project dates of the two AI projects at Bedrock aren't given, so they appear as highlights, not dated missions.
 6. **Years of experience:** currently computed without the 2013–2016 apprenticeship (D14). Decide whether to include it.
 7. **Deploying:** `.github/workflows/deploy.yml` deploys to GitHub Pages on every push to `main`. Set **Settings → Pages → Source → GitHub Actions**, the secret `CONTACT_EMAIL`, and the repo variable `PAGES_BASE` (`/` for an `arca223.github.io` repo, `/portfolio-v3/` for a project repo). The workflow copies `index.html` to `404.html`, so links straight to a page like `/about` still work. On other hosts, set up an SPA fallback.
